@@ -1,0 +1,5 @@
+username: quiz_admin
+password: quiz
+host: localhost
+port: 5432
+databaseName: quiz

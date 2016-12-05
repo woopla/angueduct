@@ -1,0 +1,13 @@
+name: quiz
+description: A quiz web server
+version: 0.0.1
+author: Thor Odinson <thor@asgard.yg>
+
+environment:
+  sdk: '>=1.20.0 <2.0.0'
+
+dependencies:
+  aqueduct: any 
+
+dev_dependencies:
+  test: any
