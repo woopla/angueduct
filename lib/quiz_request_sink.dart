@@ -4,6 +4,7 @@ part of quiz;
 class QuizRequestSink extends RequestSink {
   // Configuration loaded by Dart library safe_config
   static String ConfigurationKey = "QuizRequestSink.Configuration";
+  final Logger log = new Logger('QuizRequestSink');
 
   QuizRequestSink(Map<String, dynamic> options) : super(options) {
     var dataModel = new ManagedDataModel.fromPackageContainingType(QuizRequestSink);
@@ -11,6 +12,8 @@ class QuizRequestSink extends RequestSink {
     var config = options[ConfigurationKey];
     var db = config.database;
     var persistentStore = new PostgreSQLPersistentStore.fromConnectionInfo(db.username, db.password, db.host, db.port, db.databaseName);
+
+    logger.onRecord.listen((rec) => print("$rec"));
 
     context = new ManagedContext(dataModel, persistentStore);
   }
