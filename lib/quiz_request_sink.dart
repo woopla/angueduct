@@ -2,7 +2,7 @@ part of quiz;
 
 // RequestSunk is one of the base classes in the Aqueduct pipeline
 class QuizRequestSink extends RequestSink {
-  // Configuration loaded by Dart library safe_config
+  // Configuration loaded by Dart library safe_config also from Stable|Kernel
   static String ConfigurationKey = "QuizRequestSink.Configuration";
   final Logger log = new Logger('QuizRequestSink');
 
@@ -13,7 +13,7 @@ class QuizRequestSink extends RequestSink {
     var db = config.database;
     var persistentStore = new PostgreSQLPersistentStore.fromConnectionInfo(db.username, db.password, db.host, db.port, db.databaseName);
 
-    logger.onRecord.listen((rec) => print("$rec"));
+    logger.onRecord.listen((rec) => print("${rec.level.name}: ${rec.time}: ${rec.message}"));
 
     context = new ManagedContext(dataModel, persistentStore);
   }
@@ -23,8 +23,14 @@ class QuizRequestSink extends RequestSink {
   @override
   void setupRouter(Router router) {
     router
-      .route("/questions/[:index(\\d+)]")
+      .route("/api/questions/[:index(\\d+)]")
       .generate(() => new QuestionController());
+
+    // Catch-all for static files
+    router
+      .route("/*")
+      .generate(() => new StaticFilesController());
+    Response.addEncoder(io.ContentType.parse("application/javascript"), (j) => j.toString());
   }
 }
 

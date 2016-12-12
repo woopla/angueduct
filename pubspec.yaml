@@ -8,6 +8,8 @@ environment:
 dependencies:
   aqueduct: any 
   angular2: ^2.0.0
+  mime: any
+  path: any
 dev_dependencies:
   test: any
   browser: ^0.10.0
