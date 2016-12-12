@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:quiz/quiz.dart';
+import 'package:aqueduct_angular/quiz.dart';
 
 void main() {
   var config = new QuizConfiguration("config.yaml.src");

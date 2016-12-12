@@ -1,6 +1,6 @@
 // Tutorial @ https://stablekernel.github.io/aqueduct/tut/getting-started.html
 
-import 'package:quiz/quiz.dart';
+import 'package:aqueduct_angular/quiz.dart';
 
 void main() {
   var config = new QuizConfiguration("config.yaml");
