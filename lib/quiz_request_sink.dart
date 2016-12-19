@@ -31,7 +31,8 @@ class QuizRequestSink extends RequestSink {
     router
       .route("/*")
       .generate(() => new StaticFilesController());
-    Response.addEncoder(io.ContentType.parse("application/javascript"), (j) => j.toString());
+    Response.addEncoder(io.ContentType.parse("application/javascript"), (j) => j);
+    Response.addEncoder(io.ContentType.parse("text/*"), (j) => j);
   }
 }
 

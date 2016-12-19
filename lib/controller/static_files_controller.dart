@@ -14,7 +14,7 @@ class StaticFilesController extends HTTPController {
     }
     String filePath = path.join(basePath, realPath);
     io.File file = new io.File(filePath);
-    var fileContents = file.readAsStringSync();
+    var fileContents = file.readAsBytesSync();
 
     String contentType = mime.lookupMimeType(filePath);
 
