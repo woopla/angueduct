@@ -14,7 +14,11 @@ class QuizRequestSink extends RequestSink {
     var db = config.database;
     var persistentStore = new PostgreSQLPersistentStore.fromConnectionInfo(db.username, db.password, db.host, db.port, db.databaseName);
 
-    logger.onRecord.listen((rec) => print("${rec.level.name}: ${rec.time}: ${rec.message} ::: ${rec.error.toString()}"));
+  logger.onRecord.listen((rec) {
+      String errStr;
+      rec.error == null ? errStr = "" : errStr = " ::: ${rec.error.toString()}";
+      print("${rec.level.name}: ${rec.time}: ${rec.message}${errStr}");
+    });
 
     context = new ManagedContext(dataModel, persistentStore);
   }
