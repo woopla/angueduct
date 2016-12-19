@@ -7,7 +7,8 @@ class QuizRequestSink extends RequestSink {
   final Logger log = new Logger('QuizRequestSink');
 
   QuizRequestSink(Map<String, dynamic> options) : super(options) {
-    var dataModel = new ManagedDataModel.fromPackageContainingType(QuizRequestSink);
+    var dataModel = new ManagedDataModel.fromCurrentMirrorSystem();
+
 
     var config = options[ConfigurationKey];
     var db = config.database;
