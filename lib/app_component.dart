@@ -10,7 +10,8 @@ import 'dart:convert';
     templateUrl: "app_component.html")
 class AppComponent {
   static const String baseURL = "http://127.0.0.1:8080/api";
-  List questions;
+  static const String baseURL = "http://127.0.0.1:8081/api";
+  List<Question> questions;
 
   AppComponent() {
     loadData();
@@ -25,9 +26,9 @@ class AppComponent {
   }
 
   void onDataLoaded(String responseText) {
-    var dataFromJson = JSON.decode(responseText);
+    List dataFromJson = JSON.decode(responseText);
 
-    questions = new List<Question>();
+    questions = new List<Question>()..length = dataFromJson.length;
     for (var obj in dataFromJson) {
       questions.add(new Question.fromJSON(obj));
     }
