@@ -37,6 +37,8 @@ class QuizRequestSink extends RequestSink {
       .generate(() => new StaticFilesController());
     Response.addEncoder(io.ContentType.parse("application/javascript"), (j) => UTF8.decode(j));
     Response.addEncoder(io.ContentType.parse("text/*"), (j) => UTF8.decode(j));
+    // This ain't working because HttpResponse.write will convert to a string no matter what.
+    // Needs a way to use HttpResponse.add which takes data in whatever format it's in.
     Response.addEncoder(io.ContentType.parse("image/*"), (List<int> j) => new List<int>.from(j));
   }
 }
