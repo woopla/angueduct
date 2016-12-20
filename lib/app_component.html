@@ -1,1 +1,14 @@
-<h1>Hello Angular</h1>
+<h1>Quiz time!</h1>
+<table>
+    <thead>
+        <th>Index</th>
+        <th>Question</th>
+        <th>Answer</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let question of questions">
+        <td>{{question.id}}</td>
+        <td>{{question.description}}</td>
+        <td>{{question.answer}}</td>
+    </tr>
+</table>
