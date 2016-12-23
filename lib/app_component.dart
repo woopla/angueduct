@@ -11,6 +11,7 @@ import 'dart:convert';
 class AppComponent {
   static const String baseURL = "http://127.0.0.1:8080/api";
   static const String baseURL = "http://127.0.0.1:8081/api";
+  String title = "Quiz time!";
   List<Question> questions;
 
   AppComponent() {
