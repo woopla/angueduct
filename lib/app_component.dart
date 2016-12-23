@@ -46,7 +46,7 @@ class Question {
 
   Question(this.id, this.description, this.answer);
   factory Question.fromJSON(Map<String, dynamic> qst) =>
-    new Question(_toInt(qst['index']), qst['description'], qst['answer']);
+    new Question(_toInt(qst['index']), qst['description'], qst['answer']['description']);
   
   Map toJSON() => {'index': id, 'description': description, 'answer': answer};
 }
