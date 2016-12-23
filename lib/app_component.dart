@@ -12,11 +12,14 @@ class AppComponent {
   static const String baseURL = "http://127.0.0.1:8080/api";
   static const String baseURL = "http://127.0.0.1:8081/api";
   String title = "Quiz time!";
-  List<Question> questions;
+  List<Question> _questions;
 
   AppComponent() {
     loadData();
   }
+
+  // Use a getter to hide internal list in case we want to get smarter later on
+  List<Question> get questions => _questions;
 
   // Based on https://webdev.dartlang.org/articles/get-data/json-web-service
   void loadData() {
@@ -29,9 +32,9 @@ class AppComponent {
   void onDataLoaded(String responseText) {
     List dataFromJson = JSON.decode(responseText);
 
-    questions = new List<Question>()..length = dataFromJson.length;
+    _questions = new List<Question>();
     for (var obj in dataFromJson) {
-      questions.add(new Question.fromJSON(obj));
+      _questions.add(new Question.fromJSON(obj));
     }
   }
 }
