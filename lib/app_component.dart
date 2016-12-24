@@ -8,9 +8,8 @@ import 'dart:convert';
 @Component(
     selector: 'my-app',
     templateUrl: "app_component.html")
-  static const String baseURL = "http://127.0.0.1:8080/api";
 class AppComponent implements OnInit {
-  static const String baseURL = "http://127.0.0.1:8081/api";
+  static const String baseURL = "http://127.0.0.1:8080/api";
   String title = "Quiz time!";
   List<Question> _questions;
 
