@@ -21,6 +21,8 @@ class AppComponent {
   // Use a getter to hide internal list in case we want to get smarter later on
   List<Question> get questions => _questions;
 
+  int trackByQuestions(int index, Question question) => question.id;
+
   // Based on https://webdev.dartlang.org/articles/get-data/json-web-service
   void loadData() {
     var url = path.join(baseURL, "questions");
