@@ -29,7 +29,7 @@ class AppComponent implements OnInit {
     var url = path.join(baseURL, "questions");
 
     // Call the web server asynchronously
-    var request = HttpRequest.getString(url).then(onDataLoaded);
+    HttpRequest.getString(url).then(onDataLoaded);
   }
 
   void onDataLoaded(String responseText) {
