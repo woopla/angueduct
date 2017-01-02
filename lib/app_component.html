@@ -1,16 +1,2 @@
 <h1>{{title}}</h1>
-<table border="1">
-    <thead>
-        <th>Index</th>
-        <th>Question</th>
-        <th>Answer</th>
-    </thead>
-    <tbody>
-    <!-- Doc @ https://webdev.dartlang.org/angular/api/angular2.common/NgFor-class -->
-    <!-- ngForTrackBy: https://webdev.dartlang.org/angular/guide/template-syntax#!#ngFor -->
-    <tr *ngFor="let question of questions" *ngForTrackBy="trackByQuestions">
-        <td>{{question.id}}</td>
-        <td>{{question.description}}</td>
-        <td>{{question.answer}}</td>
-    </tr>
-</table>
+<ng-table [tableData]="tableData" [columnNames]="columns" [showIDs]=true>Loading table data...</ng-table>
