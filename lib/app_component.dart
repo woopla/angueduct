@@ -53,9 +53,9 @@ class Question {
   String answer;
 
   Question(this.id, this.description, this.answer);
-  factory Question.fromJSON(Map<String, dynamic> qst) =>
-    new Question(_toInt(qst['index']), qst['description'], qst['answer']['description']);
-  
+  factory Question.fromJSON(Map<String, dynamic> qst) => new Question(
+      _toInt(qst['index']), qst['description'], qst['answer']['description']);
+
   Map toJSON() => {'index': id, 'description': description, 'answer': answer};
   // toList() is used to convert the object to a list suitable for TableComponent
   List toList() => [id, description, answer];
