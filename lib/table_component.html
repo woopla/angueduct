@@ -1,9 +1,10 @@
 <table border="1">
     <thead>
         <!-- The first column has the indices, only display this if showIDs is false-->
-        <th *ngIf="showIDs == true">{{columnNames[0]}}</th>
+        <th *ngIf="showIDs == true">{{columnNames[0]}}<button (click)="onClick(columnNames[0])">S</button>
+        </th>
         <!-- Always display the subset of the list starting from index 1 -->
-        <th *ngFor="let col of columnNames | slice:1">{{col}}</th>
+        <th *ngFor="let col of columnNames | slice:1">{{col}}<button (click)="onClick(col)">S</button></th>
     </thead>
     <tbody>
         <!-- Doc @ https://webdev.dartlang.org/angular/api/angular2.common/NgFor-class -->
