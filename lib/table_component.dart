@@ -5,6 +5,7 @@ import 'dart:core';
 @Component(
     selector: 'ng-table',
     templateUrl: "table_component.html",
+    styleUrls: const ['table_component.css'],
     // material{Directives,Providers} are required to use the angular2_components module
     directives: const [materialDirectives],
     providers: const [materialProviders])

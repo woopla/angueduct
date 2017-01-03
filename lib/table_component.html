@@ -1,15 +1,15 @@
 <table class="mdl-data-table mdl-shadow--2dp">
     <thead>
         <!-- The first column has the indices, only display this if showIDs is false-->
-        <th class="mdl-data-table__cell--non-numeric" *ngIf="showIDs == true">{{columnNames[0]}}
-            <material-button (click)="onClick(columnNames[0])" aria-label="Sort">
-                <glyph icon="sort_by_alpha"></glyph>
+        <th class="mdl-data-table__cell" *ngIf="showIDs == true">{{columnNames[0]}}
+            <material-button (click)="onClick(columnNames[0])" aria-label="Sort" icon>
+                <glyph icon="sort_by_alpha" size="small"></glyph>
             </material-button>
         </th>
         <!-- Always display the subset of the list starting from index 1 -->
         <th class="mdl-data-table__cell--non-numeric" *ngFor="let col of columnNames | slice:1">{{col}}
-            <material-button (click)="onClick(col)" aria-label="Sort">
-                <glyph icon="sort_by_alpha"></glyph>
+            <material-button (click)="onClick(col)" aria-label="Sort" icon>
+                <glyph icon="sort_by_alpha" size="small"></glyph>
             </material-button>
         </th>
     </thead>

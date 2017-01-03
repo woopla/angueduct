@@ -1,0 +1,11 @@
+th material-button {
+    float: right;
+    margin-top: -2px !important;
+}
+
+/* This is the proper way to vertically align the icon with the text,
+   but for some reason it's not taken into account, hence the negative margin above.
+*/
+th material-button div.content {
+    padding-top: 6px !important;
+}
