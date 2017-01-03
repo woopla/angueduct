@@ -22,13 +22,19 @@ class TableComponent {
   // incrOrdering contains the per-column sorting order
   List<bool> incrOrdering;
 
-  void onClick(String column) {
+  void onClick(String column, [bool increasing]) {
     // Let's default to increasing order on first click.
     if (incrOrdering == null) {
       incrOrdering =
           new List<bool>.filled(columnNames.length, true, growable: true);
     }
+
     int idx = columnNames.indexOf(column);
+
+    // If nothing is provided in the call, let's see what we have in the ordering table
+    if (increasing != null) {
+      incrOrdering[idx] = increasing;
+    }
 
     // Is there a more idiomatic way to do this in Dart? I don't like the almost repeating code here...
     if (incrOrdering[idx]) {
