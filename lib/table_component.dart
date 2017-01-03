@@ -9,22 +9,28 @@ import 'dart:core';
     directives: const [materialDirectives],
     providers: const [materialProviders])
 class TableComponent {
+  // tableData contains the per-row information.
   @Input()
   List<List<dynamic>> tableData;
+  // columnNames contains the data for the table <thead> section
   @Input()
   List<String> columnNames;
+  // showIDs controls the visibility of the indices column (the first one)
   @Input()
   bool showIDs = false;
 
+  // incrOrdering contains the per-column sorting order
   List<bool> incrOrdering;
 
   void onClick(String column) {
+    // Let's default to increasing order on first click.
     if (incrOrdering == null) {
       incrOrdering =
           new List<bool>.filled(columnNames.length, true, growable: true);
     }
     int idx = columnNames.indexOf(column);
-    // TODO: Figure out why the table is not updated in the DOM - the sorting works fine...
+
+    // Is there a more idiomatic way to do this in Dart? I don't like the almost repeating code here...
     if (incrOrdering[idx]) {
       incrOrdering[idx] = false;
       tableData
