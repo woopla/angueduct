@@ -7,7 +7,8 @@ void main() {
   var app = new Application<QuizRequestSink>()
     ..configuration.configurationOptions = {
       QuizRequestSink.ConfigurationKey : config
-    };
+    }
+    ..configuration.port = 8081;
     
   app.start();
 }
