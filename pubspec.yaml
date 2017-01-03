@@ -8,6 +8,7 @@ environment:
 dependencies:
   aqueduct: any 
   angular2: ^2.0.0
+  angular2_components: ^0.2.0
   mime: any
   path: any
 dev_dependencies:

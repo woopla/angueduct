@@ -1,17 +1,24 @@
-<table border="1">
+<table class="mdl-data-table mdl-shadow--2dp">
     <thead>
         <!-- The first column has the indices, only display this if showIDs is false-->
-        <th *ngIf="showIDs == true">{{columnNames[0]}}<button (click)="onClick(columnNames[0])">S</button>
+        <th class="mdl-data-table__cell--non-numeric" *ngIf="showIDs == true">{{columnNames[0]}}
+            <material-button (click)="onClick(columnNames[0])" aria-label="Sort">
+                <glyph icon="sort_by_alpha"></glyph>
+            </material-button>
         </th>
         <!-- Always display the subset of the list starting from index 1 -->
-        <th *ngFor="let col of columnNames | slice:1">{{col}}<button (click)="onClick(col)">S</button></th>
+        <th class="mdl-data-table__cell--non-numeric" *ngFor="let col of columnNames | slice:1">{{col}}
+            <material-button (click)="onClick(col)" aria-label="Sort">
+                <glyph icon="sort_by_alpha"></glyph>
+            </material-button>
+        </th>
     </thead>
     <tbody>
         <!-- Doc @ https://webdev.dartlang.org/angular/api/angular2.common/NgFor-class -->
         <!-- ngForTrackBy: https://webdev.dartlang.org/angular/guide/template-syntax#!#ngFor -->
         <tr *ngFor="let row of tableData" *ngForTrackBy="trackByRow">
             <!-- See above for the rationale behind the ngIf/ngFor/slice combination -->
-            <th *ngIf="showIDs == true">{{row[0]}}</th>
-            <td *ngFor="let col of row | slice:1">{{col}}</td>
+            <td class="mdl-data-table__cell--non-numeric" *ngIf="showIDs == true">{{row[0]}}</td>
+            <td class="mdl-data-table__cell--non-numeric" *ngFor="let col of row | slice:1">{{col}}</td>
         </tr>
 </table>

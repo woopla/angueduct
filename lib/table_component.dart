@@ -1,7 +1,13 @@
 import 'package:angular2/core.dart';
+import 'package:angular2_components/angular2_components.dart';
 import 'dart:core';
 
-@Component(selector: 'ng-table', templateUrl: "table_component.html")
+@Component(
+    selector: 'ng-table',
+    templateUrl: "table_component.html",
+    // material{Directives,Providers} are required to use the angular2_components module
+    directives: const [materialDirectives],
+    providers: const [materialProviders])
 class TableComponent {
   @Input()
   List<List<dynamic>> tableData;
